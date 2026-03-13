@@ -6,6 +6,7 @@ import ProjectSection from "@/components/projectSection/projectSection";
 import Skills from "@/components/skills/skills";
 import { FlickeringGrid } from "@/components/ui/flickering-grid";
 import Image from "next/image";
+import ChatBot from "@/components/ChatBot/ChatBot";
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
       <section id="contact">
         <ContactSection />
       </section>
+      <ChatBot />
     </div>
   );
 }

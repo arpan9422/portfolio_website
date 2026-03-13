@@ -90,9 +90,12 @@ export function DockNav() {
             </Tooltip>
           </DockIcon>
         ))}
-        <Separator orientation="vertical" className="h-full bg-gray-700" />
+        <Separator orientation="vertical" className="hidden sm:block h-full bg-gray-700" />
         {Object.entries(DATA.contact.social).map(([name, social]) => (
-          <DockIcon key={name}>
+          <DockIcon 
+            key={name}
+            className="hidden sm:flex"
+          >
             <Tooltip>
               <TooltipTrigger asChild>
                 <Link

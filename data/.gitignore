@@ -1,0 +1,4 @@
+# Ignore the SQLite database but keep the folder
+*.db
+*.db-shm
+*.db-wal
