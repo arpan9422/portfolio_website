@@ -1,13 +1,19 @@
 import Database from "better-sqlite3";
 import path from "path";
 import fs from "fs";
+import os from "os";
 
 // ── Config ────────────────────────────────────────────────────────────────────
 const MAX_QUESTIONS = 30;
 const WINDOW_MS = 60 * 60 * 1000; // 1 hour in ms
 
 // ── DB setup (singleton) ──────────────────────────────────────────────────────
-const DATA_DIR = path.join(process.cwd(), "data");
+// In serverless (Vercel/Lambda), process.cwd() is read-only — use os.tmpdir().
+// Locally, keep data/ inside the project so it survives dev-server restarts.
+const DATA_DIR =
+  process.env.NODE_ENV === "production"
+    ? os.tmpdir()
+    : path.join(process.cwd(), "data");
 const DB_PATH = path.join(DATA_DIR, "rate_limit.db");
 
 let _db: Database.Database | null = null;
@@ -15,8 +21,10 @@ let _db: Database.Database | null = null;
 function getDb(): Database.Database {
   if (_db) return _db;
 
-  // Ensure the data directory exists
-  fs.mkdirSync(DATA_DIR, { recursive: true });
+  // Ensure the data directory exists (no-op in prod since /tmp always exists)
+  if (process.env.NODE_ENV !== "production") {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  }
 
   _db = new Database(DB_PATH);
 
