@@ -47,13 +47,19 @@ function Aboutme() {
         {/* Changed to flex-col on very small screens, row on everything else */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full sm:w-auto">
           <GlassButton className="w-full sm:w-auto">Contact me</GlassButton>
-          <Button
-            variant='outline'
-            className='w-full sm:w-auto border-primary border-dashed shadow-none text-black hover:text-white hover:bg-black bg-white flex items-center justify-center gap-2'
+          <a
+            href="/Arpan_Agrawal_resume.pdf"
+            download="Arpan_Agrawal_resume.pdf"
+            className="w-full sm:w-auto"
           >
-            <DownloadIcon size={18} />
-            Resume
-          </Button>
+            <Button
+              variant='outline'
+              className='w-full sm:w-auto border-primary border-dashed shadow-none text-black hover:text-white hover:bg-black bg-white flex items-center justify-center gap-2'
+            >
+              <DownloadIcon size={18} />
+              Resume
+            </Button>
+          </a>
         </div>
       </div>
 

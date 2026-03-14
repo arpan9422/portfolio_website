@@ -12,7 +12,7 @@ const projects = [
     links: [
       {
         type: "Website",
-        href: "#",
+        href: "https://www.stackwise.in/",
         icon: <Globe className="size-3" />,
       },
     ],
@@ -26,7 +26,7 @@ const projects = [
     links: [
       {
         type: "Source",
-        href: "#",
+        href: "https://github.com/arpan9422/udemy-rag",
         icon: <Github className="size-3" />,
       },
     ],
@@ -39,9 +39,9 @@ const projects = [
     image: "/pasteroom.jpg",
     links: [
       {
-        type: "Source",
-        href: "#",
-        icon: <Github className="size-3" />,
+        type: "Website",
+        href: "https://www.pasteroom.in",
+        icon: <Globe className="size-3" />,
       },
     ],
   },

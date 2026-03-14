@@ -111,15 +111,25 @@ export function ProjectCard({
             <h3 className="font-semibold text-lg">{title}</h3>
             <time className="text-xs text-slate-400">{dates}</time>
           </div>
-          <Link
-            href={href || link || "#"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-            aria-label={`Open ${title}`}
-          >
-            <ArrowUpRight className="h-5 w-5" aria-hidden />
-          </Link>
+          {/* Arrow — resolves to the first real link; hidden when none exists */}
+          {(() => {
+            const realUrl =
+              href ||
+              link ||
+              links?.find((l) => l.href && l.href !== "#")?.href;
+            if (!realUrl) return null;
+            return (
+              <Link
+                href={realUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+                aria-label={`Open ${title}`}
+              >
+                <ArrowUpRight className="h-5 w-5" aria-hidden />
+              </Link>
+            );
+          })()}
         </div>
         <div className="text-sm flex-1 prose max-w-full text-pretty font-sans leading-relaxed text-slate-300 dark:prose-invert">
           <Markdown>{description}</Markdown>
