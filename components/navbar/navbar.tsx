@@ -37,8 +37,8 @@ function Navbar() {
         <a href="#experience" className="hover:text-gray-300 transition">Experience</a>
         <a href="#Skills" className="hover:text-gray-300 transition">Skills</a>
 
-        <GlassButton>
-          Contact me
+        <GlassButton asChild>
+          <a href="#contact">Contact me</a>
         </GlassButton>
       </div>
 
@@ -52,8 +52,8 @@ function Navbar() {
         <a href="#experience" onClick={() => setIsOpen(false)} className="text-xl hover:text-gray-300 transition">Experience</a>
         <a href="#Skills" onClick={() => setIsOpen(false)} className="text-xl hover:text-gray-300 transition">Skills</a>
         
-        <GlassButton>
-          Contact me
+        <GlassButton asChild>
+          <a href="#contact" onClick={() => setIsOpen(false)}>Contact me</a>
         </GlassButton>
       </div>
     </nav>

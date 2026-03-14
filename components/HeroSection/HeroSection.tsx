@@ -70,17 +70,19 @@ function HeroSection() {
             </p>
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <GlassButton className="bg-zinc-800 px-6 py-3 rounded-lg hover:bg-zinc-700 transition">
-                Contact me
+              <GlassButton asChild className="bg-zinc-800 px-6 py-3 rounded-lg hover:bg-zinc-700 transition">
+                <a href="#contact">Contact me</a>
               </GlassButton>
 
-              <CraftButton className="bg-black">
-                <CraftButtonLabel className="font-sans text-md">
-                  View Projects
-                </CraftButtonLabel>
-                <CraftButtonIcon>
-                  <ArrowUpRightIcon className="size-3 stroke-2 transition-transform duration-500 group-hover:rotate-45" />
-                </CraftButtonIcon>
+              <CraftButton asChild className="bg-black">
+                <a href="#projects">
+                  <CraftButtonLabel className="font-sans text-md">
+                    View Projects
+                  </CraftButtonLabel>
+                  <CraftButtonIcon>
+                    <ArrowUpRightIcon className="size-3 stroke-2 transition-transform duration-500 group-hover:rotate-45" />
+                  </CraftButtonIcon>
+                </a>
               </CraftButton>
             </div>
           </div>

@@ -46,7 +46,9 @@ function Aboutme() {
         {/* Action Buttons */}
         {/* Changed to flex-col on very small screens, row on everything else */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full sm:w-auto">
-          <GlassButton className="w-full sm:w-auto">Contact me</GlassButton>
+          <GlassButton asChild className="w-full sm:w-auto">
+            <a href="#contact">Contact me</a>
+          </GlassButton>
           <a
             href="/Arpan_Agrawal_resume.pdf"
             download="Arpan_Agrawal_resume.pdf"
